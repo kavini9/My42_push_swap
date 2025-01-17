@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   exit_push_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 10:34:56 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/17 19:10:10 by wweerasi         ###   ########.fr       */
+/*   Created: 2025/01/17 15:12:50 by wweerasi          #+#    #+#             */
+/*   Updated: 2025/01/17 19:36:55 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int ac, char **av)
+static void	ps_lstclear(t_node **stack)
 {
-	t_node *a;
-	t_node *tmp;
+	t_node	*current;
+	t_node	*tmp;
 
-	if (ac <= 2)
-		return(EXIT_SUCCESS);
-	if (!is_valid_arg(av + 1))
-		return (printf("error()\n"));
-	a = arg_parse(av + 1);
-	printf("returned to main\n");
-	tmp = a;
-	while(tmp)
+	if (stack != NULL)
 	{
-		printf("%i : %i\n", tmp -> rank, tmp -> num);
-		tmp = tmp -> next;
+		current = *stack;
+		while (current != NULL)
+		{
+			tmp = current;
+			current = current -> next;
+			free(tmp);
+		}
+		*stack = NULL;
 	}
-
-	return(0);
 }
 
-
-
+void	exit_push_swap(t_node **stack_a)
+{
+	ps_lstclear(stack_a);
+	exit(EXIT_FAILURE);
+}

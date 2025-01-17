@@ -11,6 +11,9 @@ HEADERS		= $(DIR_INC)/push_swap.h
 
 SOURCES = main.c \
 	  arg_validate.c \
+	  parse_input.c  \
+	  exit_push_swap.c \
+	  stack_manipulate.c \
 
 #SOURCES_BONUS = pipex_main_bonus.c \
 				pipex_bonus.c \
