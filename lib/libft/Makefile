@@ -6,7 +6,7 @@
 #    By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 18:55:54 by wweerasi          #+#    #+#              #
-#    Updated: 2024/10/27 16:23:24 by wweerasi         ###   ########.fr        #
+#    Updated: 2025/01/18 14:19:23 by wweerasi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SOURCES = ft_isalpha.c \
 		  ft_strnstr.c \
 		  ft_atoi.c \
 		  ft_atof.c \
+		  ft_atol.c \
 		  ft_calloc.c \
 		  ft_strdup.c \
 		  ft_substr.c \

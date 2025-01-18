@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:34:56 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/17 19:10:10 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/18 16:00:00 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,21 @@
 
 int	main(int ac, char **av)
 {
-	t_node *a;
-	t_node *tmp;
+	t_node	*stack_a;
+	t_node	*tmp;
 
+	stack_a = NULL;
 	if (ac <= 2)
-		return(EXIT_SUCCESS);
+		return (EXIT_SUCCESS);
 	if (!is_valid_arg(av + 1))
 		return (printf("error()\n"));
-	a = arg_parse(av + 1);
-	printf("returned to main\n");
-	tmp = a;
-	while(tmp)
+	arg_parse(av + 1, &stack_a);
+	tmp = stack_a;
+	while (tmp)
 	{
 		printf("%i : %i\n", tmp -> rank, tmp -> num);
 		tmp = tmp -> next;
 	}
-
-	return(0);
+	exit_push_swap(&stack_a);
+	return (0);
 }
-
-
-
