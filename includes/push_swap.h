@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:26:44 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/18 16:01:06 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/20 19:20:48 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ typedef struct s_node
 
 int		is_valid_arg(char **inp);
 void	free_arr(char ***arr);
-void	arg_parse(char **inp, t_node **stack_a);
-void	exit_push_swap(t_node **stack_a);
+void	arg_parse(char **inp, t_node **stack);
+void	exit_push_swap(t_node **stack);
 t_node	*ft_stacknew(int num, int rank);
 void	ft_stackadd_back(t_node **stack, t_node *new);
 t_node	*ft_stacklast(t_node *stack);
+//int	ft_stacksize(t_node *stack);
 
 #endif

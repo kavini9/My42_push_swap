@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:35:23 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/18 15:59:51 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:37:48 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,30 @@ void	free_arr(char ***arr)
 	*arr = NULL;
 }
 
-static int	is_duplicate(int num, t_node *a)
+static int	is_duplicate(int num, t_node *node)
 {
-	while (a != NULL)
+	while (node != NULL)
 	{
-		if (num == a -> num)
+		if (num == node -> num)
 			return (1);
 		else
-			a = a -> next;
+			node = node -> next;
 	}
 	return (0);
 }
 
-void	stack_appendnum(t_node **stack_a, int num, int rank)
+void	stack_appendnum(t_node **stack, int num, int rank)
 {
 	t_node	*new_node;
 
 	new_node = ft_stacknew(num, rank);
-	if (!*stack_a)
-		*stack_a = new_node;
+	if (!*stack)
+		*stack = new_node;
 	else
-		ft_stackadd_back(stack_a, new_node);
+		ft_stackadd_back(stack, new_node);
 }
 
-void	arg_parse(char **inp, t_node **stack_a)
+void	arg_parse(char **inp, t_node **stack)
 {
 	int		rank;
 	long int		num;
@@ -64,19 +64,20 @@ void	arg_parse(char **inp, t_node **stack_a)
 	{
 		split_inp = ft_split(*inp, ' ');
 		if (!split_inp)
-			exit_push_swap(stack_a);
+			exit_push_swap(stack);
 		tmp = split_inp;
 		while (*tmp)
 		{
 			num = ft_atol(*tmp);
-			if ((((num == 0 || num == -1) && ft_strlen(*tmp) > 19)
+			printf("ft_atol num: %li\n", num);
+			if ((((num == 0 || num == -1) && ft_strlen(*tmp) >= 19)
 			|| (num > 2147483647 || num < -2147483648))
-			|| is_duplicate(num, *stack_a))
+			|| is_duplicate(num, *stack)) // check if 19 is correct
 			{
 				free_arr(&tmp);
-				exit_push_swap(stack_a);
+				exit_push_swap(stack);
 			}
-			stack_appendnum(stack_a, num, rank);
+			stack_appendnum(stack, num, rank);
 			rank++;
 			tmp++;
 		}

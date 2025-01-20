@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:56:33 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/17 17:21:15 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:32:41 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,17 @@ t_node	*ft_stacklast(t_node *stack)
 		return (stack);
 	}
 	return (NULL);
+}
+
+int	ft_stacksize(t_node *stack)
+{
+	int		count;
+
+	count = 0;
+	while (stack != NULL)
+	{
+		count++;
+		stack = stack -> next;
+	}
+	return (count);
 }
