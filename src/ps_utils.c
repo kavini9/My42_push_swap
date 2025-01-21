@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:26:37 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/21 11:41:22 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:20:48 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int	is_sorted(t_node *stack)
 		else
 			return (0);
 	}
-	write(1, "Sorted\n",8);
 	return (1);
 }
