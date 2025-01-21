@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:34:56 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/21 11:40:02 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:15:43 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ int	main(int ac, char **av)
 		return (write(1,"Error\n",7));
 	if (arg_parse(av + 1, &stack)  == 1 || is_sorted(stack))
 		exit_push_swap(&stack);
+	sort(&stack);
+
+
+
+
 	tmp = stack;
 	while (tmp)
 	{
