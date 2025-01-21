@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:35:23 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/20 17:37:48 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:06:40 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,25 @@ static int	is_duplicate(int num, t_node *node)
 	return (0);
 }
 
-void	stack_appendnum(t_node **stack, int num, int rank)
+void	stack_appendnum(t_node **stack, int num, int index)
 {
 	t_node	*new_node;
 
-	new_node = ft_stacknew(num, rank);
+	new_node = ft_stacknew(num, index);
 	if (!*stack)
 		*stack = new_node;
 	else
 		ft_stackadd_back(stack, new_node);
 }
 
-void	arg_parse(char **inp, t_node **stack)
+int	arg_parse(char **inp, t_node **stack)
 {
-	int		rank;
+	int		index;
 	long int		num;
 	char		**split_inp;
 	char		**tmp;
 
-	rank = 0;
+	index = 0;
 	while (*inp)
 	{
 		split_inp = ft_split(*inp, ' ');
@@ -69,19 +69,20 @@ void	arg_parse(char **inp, t_node **stack)
 		while (*tmp)
 		{
 			num = ft_atol(*tmp);
-			printf("ft_atol num: %li\n", num);
 			if ((((num == 0 || num == -1) && ft_strlen(*tmp) >= 19)
 			|| (num > 2147483647 || num < -2147483648))
 			|| is_duplicate(num, *stack)) // check if 19 is correct
 			{
+				write(1,"Error\n",7);
 				free_arr(&tmp);
 				exit_push_swap(stack);
 			}
-			stack_appendnum(stack, num, rank);
-			rank++;
+			stack_appendnum(stack, num, index);
+			index++;
 			tmp++;
 		}
 		free_arr(&split_inp);
 		inp++;
 	}
+	return (index);
 }

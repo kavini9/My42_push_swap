@@ -6,13 +6,13 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:56:33 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/20 14:32:41 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:55:30 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_node	*ft_stacknew(int num, int rank)
+t_node	*ft_stacknew(int num, int index)
 {
 	t_node	*node_new;
 
@@ -20,7 +20,7 @@ t_node	*ft_stacknew(int num, int rank)
 	if (node_new != NULL)
 	{
 		node_new -> num = num;
-		node_new -> rank = rank;
+		node_new -> index = index;
 		node_new -> next = NULL;
 	}
 	return (node_new);

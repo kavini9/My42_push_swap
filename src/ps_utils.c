@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ps_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 10:34:56 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/21 11:40:02 by wweerasi         ###   ########.fr       */
+/*   Created: 2025/01/21 11:26:37 by wweerasi          #+#    #+#             */
+/*   Updated: 2025/01/21 11:41:22 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int ac, char **av)
+int	is_sorted(t_node *stack)
 {
-	t_node	*stack;
-	t_node	*tmp;
-
-	stack = NULL;
-	if (ac < 2)
-		return (EXIT_SUCCESS);
-	if (!is_valid_arg(av + 1))
-		return (write(1,"Error\n",7));
-	if (arg_parse(av + 1, &stack)  == 1 || is_sorted(stack))
-		exit_push_swap(&stack);
-	tmp = stack;
-	while (tmp)
+	while(stack -> next)
 	{
-		printf("%i : %i\n", tmp -> index, tmp -> num);
-		tmp = tmp -> next;
+		if (stack ->  num  < stack -> next -> num)
+			stack = stack -> next;
+		else
+			return (0);
 	}
-	exit_push_swap(&stack);
-	return (0);
+	write(1, "Sorted\n",8);
+	return (1);
 }
