@@ -6,16 +6,14 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:14:15 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/21 12:21:06 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:18:42 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	initiate_stack_a(int *a, t_node *stack)
+int	init_stack(int size, t_node *inp, t_stack *stack)
 {
-	int		stack_size;
-	int		rank;
 	t_node	tmp;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:35:23 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/21 12:06:40 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:32:35 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	arg_parse(char **inp, t_node **stack)
 	{
 		split_inp = ft_split(*inp, ' ');
 		if (!split_inp)
-			exit_push_swap(stack);
+			exit_push_swap(NULL, stack);
 		tmp = split_inp;
 		while (*tmp)
 		{
@@ -73,9 +73,8 @@ int	arg_parse(char **inp, t_node **stack)
 			|| (num > 2147483647 || num < -2147483648))
 			|| is_duplicate(num, *stack)) // check if 19 is correct
 			{
-				write(1,"Error\n",7);
 				free_arr(&tmp);
-				exit_push_swap(stack);
+				exit_push_swap("Error",stack);
 			}
 			stack_appendnum(stack, num, index);
 			index++;

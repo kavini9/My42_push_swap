@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:12:50 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/17 19:36:55 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:32:40 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ static void	ps_lstclear(t_node **stack)
 	}
 }
 
-void	exit_push_swap(t_node **stack_a)
+void	exit_push_swap(char *param, t_node **stack_a)
 {
+	if (param)
+		ft_putendl_fd(param, 1);
 	ps_lstclear(stack_a);
 	exit(EXIT_FAILURE);
 }
