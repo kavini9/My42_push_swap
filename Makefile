@@ -16,6 +16,7 @@ SOURCES = main.c \
 	  stack_manipulate.c \
 	  ps_utils.c \
 	  init_stacks.c \
+	  sort.c \
 
 #SOURCES_BONUS = pipex_main_bonus.c \
 				pipex_bonus.c \

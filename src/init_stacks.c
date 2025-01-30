@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:14:15 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/27 18:15:27 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:24:12 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static int	init_stacks(int size, t_stack *stack)
 {
+	stack -> a = NULL;
+	stack -> b = NULL;
 	stack -> a = malloc(size * sizeof(int));
 	if (stack -> a)
 		stack -> b = malloc(size * sizeof(int));
@@ -23,27 +25,23 @@ static int	init_stacks(int size, t_stack *stack)
 			free(stack -> a);
 		return (1);
 	}
-	int	*a[size + 1];
-	int	*b[size + 1];
-	stack -> a = a;
-	stack -> b = b;
 	stack -> len_a = 0;
 	stack -> len_b = 0;
 	return (0);
 }
 
 
-void	stack_normalize(int size, t_node *inp, t_stack **stack)
+void	stack_normalize(int size, t_node *inp, t_stack *stack)
 {
 	t_node	*inp_i;
 	t_node	*inp_j;
 	int		rank;
 	int	*tmp;
 	
-	if (init_stacks(size, *stack))
+	if (init_stacks(size, stack))
 		exit_push_swap(NULL, &inp);
 	inp_i = inp;
-	tmp = (*stack) -> a;
+	tmp = stack -> a;
 	while(inp_i)
 	{
 
@@ -58,6 +56,6 @@ void	stack_normalize(int size, t_node *inp, t_stack **stack)
 		*tmp = rank;
 		tmp++;
 		inp_i = inp_i -> next;
-		(*stack) -> len_a++;
+		stack -> len_a++;
 	}
 }

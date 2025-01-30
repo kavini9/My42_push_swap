@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:35:23 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/24 17:32:35 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:11:35 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	stack_appendnum(t_node **stack, int num, int index)
 {
 	t_node	*new_node;
 
-	new_node = ft_stacknew(num, index);
+	new_node = ps_stacknew(num, index);
 	if (!*stack)
 		*stack = new_node;
 	else
-		ft_stackadd_back(stack, new_node);
+		ps_stackadd_back(stack, new_node);
 }
 
 int	arg_parse(char **inp, t_node **stack)

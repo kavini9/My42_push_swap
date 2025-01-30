@@ -6,13 +6,13 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:56:33 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/21 10:55:30 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:35:09 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_node	*ft_stacknew(int num, int index)
+t_node	*ps_stacknew(int num, int index)
 {
 	t_node	*node_new;
 
@@ -26,7 +26,7 @@ t_node	*ft_stacknew(int num, int index)
 	return (node_new);
 }
 
-void	ft_stackadd_back(t_node **stack, t_node *new)
+void	ps_stackadd_back(t_node **stack, t_node *new)
 {
 	t_node	*last;
 
@@ -34,14 +34,14 @@ void	ft_stackadd_back(t_node **stack, t_node *new)
 		return ;
 	if (*stack != NULL)
 	{
-		last = ft_stacklast(*stack);
+		last = ps_stacklast(*stack);
 		last -> next = new;
 		return ;
 	}
 	*stack = new;
 }
 
-t_node	*ft_stacklast(t_node *stack)
+t_node	*ps_stacklast(t_node *stack)
 {
 	if (stack != NULL)
 	{
@@ -52,7 +52,7 @@ t_node	*ft_stacklast(t_node *stack)
 	return (NULL);
 }
 
-int	ft_stacksize(t_node *stack)
+int	ps_stacksize(t_node *stack)
 {
 	int		count;
 
@@ -64,3 +64,22 @@ int	ft_stacksize(t_node *stack)
 	}
 	return (count);
 }
+
+void     ps_lstclear(t_node **stack)
+{
+        t_node  *current;
+        t_node  *tmp;
+
+        if (stack != NULL)
+        {
+                current = *stack;
+                while (current != NULL)
+                {
+                        tmp = current;
+                        current = current -> next;
+                        free(tmp);
+                }
+                *stack = NULL;
+        }
+}
+
