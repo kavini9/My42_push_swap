@@ -12,7 +12,22 @@
 
 #include "../includes/push_swap.h"
 
-
-void sort(t_node *stack)
+static int	count_bits(int num)
 {
-	
+	int	count;
+
+	count = 0;
+	while (num)
+	{
+		count++;
+		num >>= 1;
+	}
+	return (count);
+}
+
+void sort(t_stack *stack)
+{
+	int iter;
+
+	iter = count_bits(stack -> len_a);
+	while (iter

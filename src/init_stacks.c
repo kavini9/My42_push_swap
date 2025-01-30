@@ -23,6 +23,10 @@ static int	init_stacks(int size, t_stack *stack)
 			free(stack -> a);
 		return (1);
 	}
+	int	*a[size + 1];
+	int	*b[size + 1];
+	stack -> a = a;
+	stack -> b = b;
 	stack -> len_a = 0;
 	stack -> len_b = 0;
 	return (0);
@@ -57,8 +61,3 @@ void	stack_normalize(int size, t_node *inp, t_stack **stack)
 		(*stack) -> len_a++;
 	}
 }
-
-
-
-
-
