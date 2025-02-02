@@ -71,9 +71,9 @@ int	arg_parse(char **inp, t_node **stack)
 			num = ft_atol(*tmp);
 			if ((((num == 0 || num == -1) && ft_strlen(*tmp) >= 19)
 			|| (num > 2147483647 || num < -2147483648))
-			|| is_duplicate(num, *stack)) // check if 19 is correct
+			|| is_duplicate(num, *stack)) // check if 19 is correct 
 			{
-				free_arr(&tmp);
+				free_arr(&tmp);// there's a double free or corruption and core dumped aborted error when duplicates
 				exit_push_swap("Error",stack);
 			}
 			stack_appendnum(stack, num, index);

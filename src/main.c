@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	stack_size = arg_parse(av + 1, &inp); 
 	if (stack_size == 1 || is_sorted(inp))
 		exit_push_swap(NULL, &inp);
-	stack_normalize(stack_size, inp, &stack);	
+	stack_normalize(stack_size, inp, &stack);
 	radix_sort(&stack);
 	free(stack.a);
         free(stack.b);	
