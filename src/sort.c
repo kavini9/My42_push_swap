@@ -83,7 +83,7 @@ void radix_sort(t_stack *stack)
 		len = stack -> len_b;
 		while (len--)
 		{
-			if (*(stack -> b) & (bit_mask * 2))
+			if ((*(stack -> b) & (bit_mask << 1)) || !iter)
 				pa(stack);
 			else
 				rb(stack);

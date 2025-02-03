@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 int	main(int ac, char **av)
 {
@@ -27,9 +28,32 @@ int	main(int ac, char **av)
 	if (stack_size == 1 || is_sorted(inp))
 		exit_push_swap(NULL, &inp);
 	stack_normalize(stack_size, inp, &stack);
+
+/*
+	int i;
+	
+	i = 0;
+	while (i < stack_size)
+	{
+		printf("%d - %d\n", i, stack.a[i]);
+		i++;
+	}
+	printf("len_a = %d	len_b = %d\n", stack.len_a, stack.len_b);
+*/
+
 	radix_sort(&stack);
+
+/*	
+	i = 0;
+	while (i < stack_size)
+	{
+		printf("%d - %d\n", i, stack.a[i]);
+		i++;
+	}
+	printf("len_a = %d	len_b = %d\n", stack.len_a, stack.len_b);
+*/
 	free(stack.a);
-        free(stack.b);	
+    free(stack.b);	
 	exit_push_swap(NULL, &inp);
 	return (0);
 
