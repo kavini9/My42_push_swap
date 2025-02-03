@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:14:15 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/30 19:24:12 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/02/03 22:04:07 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	stack_normalize(int size, t_node *inp, t_stack *stack)
 	int	*tmp;
 	
 	if (init_stacks(size, stack))
-		exit_push_swap(NULL, &inp);
+		exit_push_swap(NULL, NULL, &inp);
 	inp_i = inp;
 	tmp = stack -> a;
 	while(inp_i)

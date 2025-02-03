@@ -17,6 +17,9 @@ SOURCES = main.c \
 	  ps_utils.c \
 	  init_stacks.c \
 	  sort.c \
+	  op_push.c \
+	  op_rotate.c \
+	  op_r_rotate.c \
 
 #SOURCES_BONUS = pipex_main_bonus.c \
 				pipex_bonus.c \
