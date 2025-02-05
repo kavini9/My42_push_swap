@@ -12,17 +12,15 @@
 
 #include "../includes/push_swap.h"
 
-void radix_sort(t_stack *stack)
+void radix_sort(int len, t_stack *stack)
 {
 	int	iter;
 	int	bit_mask;
-	int	len;
 	
 	iter = 0;
 	bit_mask = 1;
-	len =stack -> len_a;
-	while (len && ++iter)
-		len >>= 1;
+	while (len >> ++iter)
+		;
 	while (iter--)
 	{
 		len = stack -> len_a;

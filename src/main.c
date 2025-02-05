@@ -42,7 +42,7 @@ int	main(int ac, char **av)
 	printf("len_a = %d	len_b = %d\n", stack.len_a, stack.len_b);
 */
 
-	radix_sort(&stack);
+	radix_sort(stack_size, &stack);
 
 /*	
 	i = 0;
