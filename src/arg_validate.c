@@ -25,7 +25,7 @@ static int	is_empty(char *str)
 	return (1);
 }
 
-static int	is_valid_multi(char *inp)
+static int	is_valid_multi(int *count, char *inp, char *cmp)
 {
 	while (*inp)
 	{
@@ -42,12 +42,16 @@ static int	is_valid_multi(char *inp)
 		{
 			if (!ft_isdigit(*inp))
 				return (0);
+			else if (*inp == *cmp || (*inp != *cmp
+					&& (*(inp - 1) == ' ' || *(inp - 1) == '+'
+						|| *(inp - 1) == '-')))
+				(*count)++;
 			inp++;
 		}
 		if (*inp == ' ' && !*(inp + 1))
 			inp++;
 	}
-	return (1);
+	return (*count);
 }
 
 static int	is_valid_single(char *inp)
@@ -65,18 +69,27 @@ static int	is_valid_single(char *inp)
 	return (1);
 }
 
-int	is_valid_arg(char **inp)
+int	get_len_if_arg_valid(char **inp)
 {
+	int	stack_size;
+	int	multi_count;
+
+	stack_size = 0;
 	while (*inp)
 	{
+		multi_count = 0;
 		if (is_empty(*inp))
 			return (0);
 		if (!is_valid_single(*inp))
 		{
-			if (!is_valid_multi(*inp))
+			if (!is_valid_multi(&multi_count, *inp, *inp))
 				return (0);
+			else
+				stack_size += multi_count;
 		}
+		else
+			stack_size++;
 		inp++;
 	}
-	return (1);
+	return (stack_size);
 }

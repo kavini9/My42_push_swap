@@ -32,17 +32,13 @@ typedef struct s_stack
 	int	len_b;
 }	t_stack;
 
-int		is_valid_arg(char **inp);
+int		get_len_if_arg_valid(char **inp);
 void	free_arr(char ***arr);
-void    arg_parse(int *index, char **inp, t_node **stack);
-void    stack_normalize(int size, t_node *inp, t_stack *stack);
-void    exit_push_swap(char *param, char ***arr, t_node **stack);
-t_node	*ps_stacknew(int num, int index);
-void	ps_stackadd_back(t_node **stack, t_node *new);
-t_node	*ps_stacklast(t_node *stack);
-void     ps_lstclear(t_node **stack);
-int 		is_sorted(t_node *stack);
-void radix_sort(t_stack *stack);
+void    arg_parse(int index, char **inp, int *stack);
+void    stack_normalize(int len, int *inp, t_stack *stack);
+void    exit_push_swap(char *param, char ***arr, int **stack);
+int 		is_sorted(int len, int *stack);
+void radix_sort(int len, t_stack *stack);
 
 //operations
 void    pa(t_stack *stack);

@@ -29,12 +29,16 @@ void	free_arr(char ***arr)
 	*arr = NULL;
 }
 
-void	exit_push_swap(char *param, char ***arr, t_node **stack)
+void	exit_push_swap(char *param, char ***arr, int **stack)
 {
 	if (param)
 		ft_putendl_fd(param, 2);
 	if (arr)
                 free_arr(arr);
-	ps_lstclear(stack);
+	if (stack)
+	{
+		free(*stack);
+		*stack = NULL;
+	}
 	exit(EXIT_FAILURE);
 }

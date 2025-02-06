@@ -13,7 +13,6 @@ SOURCES = main.c \
 	  arg_validate.c \
 	  parse_input.c  \
 	  exit_push_swap.c \
-	  stack_manipulate.c \
 	  ps_utils.c \
 	  init_stacks.c \
 	  sort.c \

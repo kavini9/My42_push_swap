@@ -12,12 +12,12 @@
 
 #include "../includes/push_swap.h"
 
-int	is_sorted(t_node *stack)
+int	is_sorted(int len, int *stack)
 {
-	while(stack -> next)
+	while(--len) 
 	{
-		if (stack ->  num  < stack -> next -> num)
-			stack = stack -> next;
+		if (*stack  < *(stack + 1))
+			stack++;
 		else
 			return (0);
 	}

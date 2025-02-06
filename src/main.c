@@ -15,26 +15,29 @@
 
 int	main(int ac, char **av)
 {
-	t_node	*inp;
 	t_stack	stack;
-	int		stack_size;
+	int	*inp_stack;
+	int		stack_len;
 
-	inp = NULL;
-	stack_size = 0;
+	inp_stack = NULL;
+	stack_len = 0;
 	if (ac < 2)
-		return (EXIT_SUCCESS);
-	if (!is_valid_arg(av + 1))
-		return (write(1,"Error\n",7));
-	arg_parse(&stack_size, av + 1, &inp); 
-	if (stack_size == 1 || is_sorted(inp))
-		exit_push_swap(NULL, NULL, &inp);
-	stack_normalize(stack_size, inp, &stack);
-
-
-//	int i;
-/*	
+		return (EXIT_FAILURE);
+	stack_len = get_len_if_arg_valid(av + 1);
+	if (!stack_len)
+		return (write(1,"Error\n",7));//beware of this return value
+	inp_stack = malloc(stack_len * sizeof(int));
+	if (!inp_stack)
+		return (EXIT_FAILURE);
+ 	arg_parse(0, av + 1, inp_stack); 
+	if (stack_len == 1 || is_sorted(stack_len, inp_stack))
+		exit_push_swap(NULL, NULL, &inp_stack);
+	stack_normalize(stack_len, inp_stack, &stack);
+/*
+	int i;
+	
 	i = 0;
-	while (i < stack_size)
+	while (i < stack_len)
 	{
 		printf("%d - %d\n", i, stack.a[i]);
 		i++;
@@ -42,7 +45,7 @@ int	main(int ac, char **av)
 	printf("len_a = %d	len_b = %d\n", stack.len_a, stack.len_b);
 */
 
-	radix_sort(stack_size, &stack);
+	radix_sort(stack_len, &stack);
 
 /*	
 	i = 0;
@@ -55,7 +58,7 @@ int	main(int ac, char **av)
 */
 	free(stack.a);
 	free(stack.b);	
-	exit_push_swap(NULL, NULL, &inp);
+	exit_push_swap(NULL, NULL, &inp_stack);
 	return (0);
 
 }
