@@ -41,4 +41,6 @@ void radix_sort(int len, t_stack *stack)
 		}
 		bit_mask <<= 1;
 	}
-}
+
+
+void	simple_sort(int len, t}

@@ -34,3 +34,21 @@ void	pb(t_stack *stack)
         push(stack -> a, stack -> b, &stack -> len_a, &stack -> len_b);
         ft_putendl_fd("pb", 1);
 }
+
+void	sa(t_stack *stack)
+{
+	int	tmp;
+
+	tmp = *stack -> a;
+	*stack -> a = *(stack -> a + 1);
+	*(stack -> a + 1) = tmp;
+}
+
+void	sb(t_stack *stack)
+{
+	int	tmp;
+
+	tmp = *stack -> b;
+	*stack -> b = *(stack -> b + 1);
+	*(stack -> b + 1) = tmp;
+}

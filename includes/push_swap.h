@@ -43,6 +43,8 @@ void radix_sort(int len, t_stack *stack);
 //operations
 void    pa(t_stack *stack);
 void    pb(t_stack *stack);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
 void    ra(t_stack *stack);
 void    rb(t_stack *stack);
 void    rr(t_stack *stack);
