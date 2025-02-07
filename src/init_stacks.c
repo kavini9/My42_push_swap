@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:14:15 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/02/03 22:04:07 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/02/07 14:23:38 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,24 @@ static int	init_stacks(int len, t_stack *stack)
 	return (0);
 }
 
-
 void	stack_normalize(int len, int *inp, t_stack *stack)
 {
 	int	i;
 	int	j;
-	int		rank;
+	int	rank;
 	int	*tmp;
 
 	if (init_stacks(len, stack))
 		exit_push_swap(NULL, NULL, &inp);
 	tmp = stack -> a;
 	i = 0;
-	while(i < len)
+	while (i < len)
 	{
 		rank = 0;
 		j = 0;
 		while (j < len)
 		{	
-			if ( *(inp + i) > *(inp + j))
+			if (*(inp + i) > *(inp + j))
 				rank++;
 			j++;
 		}

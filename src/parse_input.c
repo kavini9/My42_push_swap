@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 10:35:23 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/02/03 22:06:39 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/02/07 18:03:45 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	is_duplicate(int num, int index, int *stack)
 {
-	int 	i;
+	int	i;
 
 	i = 0;
 	while (i < index)
@@ -29,7 +29,7 @@ static int	is_duplicate(int num, int index, int *stack)
 
 void	arg_parse(int index, char **inp, int *stack)
 {
-	long int		num;
+	long int	num;
 	char		**split_inp;
 	char		**tmp;
 
@@ -43,8 +43,8 @@ void	arg_parse(int index, char **inp, int *stack)
 		{
 			num = ft_atol(*tmp);
 			if ((((num == 0 || num == -1) && ft_strlen(*tmp) >= 19)
-			|| (num > 2147483647 || num < -2147483648))
-			|| is_duplicate(num, index, stack)) // check if 19 is correct 
+					|| (num > 2147483647 || num < -2147483648))
+				|| is_duplicate(num, index, stack)) 
 				exit_push_swap("Error", &split_inp, &stack);
 			*(stack + index) = num;
 			tmp++;

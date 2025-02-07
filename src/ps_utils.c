@@ -6,7 +6,7 @@
 /*   By: wweerasi <wweerasi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:26:37 by wweerasi          #+#    #+#             */
-/*   Updated: 2025/01/21 12:20:48 by wweerasi         ###   ########.fr       */
+/*   Updated: 2025/02/07 17:03:26 by wweerasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	is_sorted(int len, int *stack)
 {
-	while(--len) 
+	while (--len)
 	{
-		if (*stack  < *(stack + 1))
+		if (*stack < *(stack + 1))
 			stack++;
 		else
 			return (0);

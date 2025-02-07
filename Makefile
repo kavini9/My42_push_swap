@@ -16,7 +16,7 @@ SOURCES = main.c \
 	  ps_utils.c \
 	  init_stacks.c \
 	  sort.c \
-	  op_push.c \
+	  op_push_swap.c \
 	  op_rotate.c \
 	  op_r_rotate.c \
 
