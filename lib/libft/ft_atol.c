@@ -12,7 +12,7 @@
 
 long int	ft_atol(const char *str)
 {
-	long int		sign;
+	long long int	sign;
 	long long int	atoi;
 	long long int	buf;
 
@@ -28,9 +28,9 @@ long int	ft_atol(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		buf = atoi;
+		buf = sign * atoi;
 		atoi = atoi * 10 + *str - '0';
-		if (atoi / 10 != buf && sign == -1)
+		if (sign * atoi / 10 != buf && sign == -1)
 			return (0);
 		else if (atoi / 10 != buf && sign == 1)
 			return (-1);
